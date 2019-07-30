@@ -84,6 +84,10 @@ public class PBRVector2
         return new PBRVector2(a.X / b.X,a.Y / b.Y);
     }
 
+    public static float AbsDot(PBRVector2 a, PBRVector2 b)
+    {
+        return Math.Abs(a.X * b.X + a.Y * b.Y);
+    }
 
     override
     public bool Equals(object obj)
