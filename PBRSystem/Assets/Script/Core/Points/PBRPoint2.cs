@@ -39,7 +39,7 @@ public class PBRPoint2
         _x = _y = 0;
     }
 
-    public PBRPoint2(float x, float y)
+    public PBRPoint3(float x, float y)
     {
         _x = x;
         _y = y;
@@ -99,7 +99,21 @@ public class PBRPoint2
         return (p1.X != p2.X) && (p1.Y != p2.Y);
     }
 
-
+    override
+    public bool Equals(object obj)
+    {
+        if (obj is PBRVector2)
+        {
+            PBRPoint2 v = (PBRPoint2)obj;
+            return (this._x == v.X && this._y == v.Y);
+        }
+        return false;
+    }
+    override
+    public int GetHashCode()
+    {
+        return _x.GetHashCode() + _y.GetHashCode();
+    }
 
 
 
