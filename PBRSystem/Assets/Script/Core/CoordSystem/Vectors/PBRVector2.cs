@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
-public class PBRVector2
+public class PBRVector2:BaseCoord2D
 {
     // Start is called before the first frame update
 
@@ -67,6 +67,10 @@ public class PBRVector2
     public static PBRVector2 operator *(PBRVector2 a, PBRVector2 b)
     {
         return new PBRVector2(a.X * b.X, a.Y * b.Y);
+    }
+    public static PBRVector2 operator *(PBRVector2 a, float s)
+    {
+        return new PBRVector2(a.X * s, a.Y * s);
     }
 
     public static bool operator==(PBRVector2 a, PBRVector2 b)
