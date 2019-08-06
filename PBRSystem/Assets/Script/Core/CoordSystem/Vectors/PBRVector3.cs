@@ -25,11 +25,22 @@ public class PBRVector3:BaseCoord3D
 
 
     #region Operator
-    
+
+    public static PBRVector3 operator +(PBRVector3 a, PBRVector3 b)
+    {
+        return new PBRVector3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+    }
+
 
     public static PBRVector3 operator -(PBRVector3 a, PBRVector3 b)
     {
         return new PBRVector3(a.X - b.X, a.Y - b.Y,a.Z - b.Z);
+    }
+
+
+    public static PBRVector3 operator -(PBRVector3 a)
+    {
+        return new PBRVector3(-a.X, -a.Y, -a.Z);
     }
 
     public static bool operator ==(PBRVector3 a, PBRVector3 b)
@@ -45,6 +56,16 @@ public class PBRVector3:BaseCoord3D
     public static PBRVector3 operator /(PBRVector3 a, float b)
     {
         return new PBRVector3(a.X / b, a.Y / b, a.Z / b);
+    }
+
+    public static PBRVector3 operator *(PBRVector3 a, float s)
+    {
+        return new PBRVector3(a.X * s, a.Y * s, a.Z * s);
+    }
+
+    public static PBRVector3 operator *(PBRVector3 a, PBRVector3 b)
+    {
+        return new PBRVector3(a.X * b.X, a.Y * b.Y, a.Z * b.Z);
     }
 
     public static float Dot(PBRVector3 a, PBRVector3 b)
@@ -113,6 +134,7 @@ public class PBRVector3:BaseCoord3D
         return _x.GetHashCode() + _y.GetHashCode() + _z.GetHashCode();
     }
 
+    
 
     #endregion
 

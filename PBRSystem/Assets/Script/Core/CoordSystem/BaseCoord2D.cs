@@ -61,30 +61,6 @@ public class BaseCoord2D
 
     #region operation
 
-    public static BaseCoord2D operator +(BaseCoord2D a, BaseCoord2D b)
-    {
-        return new BaseCoord2D(a.X + b.X, a.Y + b.Y);
-    }
-
-    public static BaseCoord2D operator -(BaseCoord2D a, BaseCoord2D b)
-    {
-        return new BaseCoord2D(a.X - b.X, a.Y - b.Y);
-    }
-
-    public static BaseCoord2D operator -(BaseCoord2D a)
-    {
-        return new BaseCoord2D(-a.X, -a.Y);
-    }
-
-    public static BaseCoord2D operator *(BaseCoord2D a, BaseCoord2D b)
-    {
-        return new BaseCoord2D(a.X * b.X, a.Y * b.Y);
-    }
-
-    public static BaseCoord2D operator *(BaseCoord2D a, float s)
-    {
-        return new BaseCoord2D(a.X * s, a.Y * s);
-    }
 
     public virtual float MaxComponent(BaseCoord2D p1)
     {
@@ -94,6 +70,12 @@ public class BaseCoord2D
     {
         return Math.Max(p1.X, p1.Y);
     }
+
+    public bool HasNaNs()
+    {
+        return float.IsNaN(_x) && float.IsNaN(_y);
+    }
+
 
     #endregion
 

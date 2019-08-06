@@ -40,6 +40,8 @@ public class PBRPoint3:BaseCoord3D
         return (p1.X != p2.X) && (p1.Y != p2.Y) && (p1.Z != p2.Z);
     }
 
+   
+
     override
     public bool Equals(object obj)
     {
@@ -56,6 +58,31 @@ public class PBRPoint3:BaseCoord3D
     {
         return new PBRPoint3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
     }
+
+    public static PBRPoint3 operator -(PBRPoint3 a)
+    {
+        return new PBRPoint3(-a.X, -a.Y, -a.Z);
+    }
+
+    public static PBRPoint3 operator +(PBRPoint3 a, PBRPoint3 b)
+    {
+        return new PBRPoint3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+    }
+
+    public static PBRPoint3 operator +(PBRPoint3 a, PBRVector3 b)
+    {
+        return new PBRPoint3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+    }
+
+    public static PBRPoint3 operator *(PBRPoint3 a, float s)
+    {
+        return new PBRPoint3(a.X * s, a.Y * s, a.Z * s);
+    }
+    public static PBRPoint3 operator *(PBRPoint3 a, PBRPoint3 b)
+    {
+        return new PBRPoint3(a.X * b.X, a.Y * b.Y, a.Z * b.Z);
+    }
+
 
     #endregion
 
@@ -84,15 +111,6 @@ public class PBRPoint3:BaseCoord3D
     public float DistanceSquare(PBRPoint3 p1, PBRPoint3 p2)
     {
         return (p2 - p1).LengthSquared();
-    }
-
-    public float MaxComponent(PBRPoint3 p1)
-    {
-        return Math.Max(p1.X, Math.Max(p1.Y, p1.Z));
-    }
-    public float MinComponent(PBRPoint3 p1)
-    {
-        return Math.Max(p1.X, Math.Max(p1.Y, p1.Z));
     }
 
     public static PBRPoint3 floor(PBRPoint3 p1)

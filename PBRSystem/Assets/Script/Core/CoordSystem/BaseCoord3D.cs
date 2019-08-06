@@ -68,42 +68,18 @@ public class BaseCoord3D
 
     #region operation
 
-    public static BaseCoord3D operator +(BaseCoord3D a, BaseCoord3D b)
-    {
-        return new BaseCoord3D(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
-    }
-
-    public static BaseCoord3D operator -(BaseCoord3D a, BaseCoord3D b)
-    {
-        return new BaseCoord3D(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
-    }
-
-    public static BaseCoord3D operator -(BaseCoord3D a)
-    {
-        return new BaseCoord3D(-a.X, -a.Y, -a.Z);
-    }
-
-    public static BaseCoord3D operator *(BaseCoord3D a, BaseCoord3D b)
-    {
-        return new BaseCoord3D(a.X * b.X, a.Y * b.Y, a.Z * b.Z);
-    }
-
-    public static BaseCoord3D operator *(BaseCoord3D a, float s)
-    {
-        return new BaseCoord3D(a.X * s, a.Y * s, a.Z * s);
-    }
-    public static BaseCoord3D operator /(BaseCoord3D a, BaseCoord3D b)
-    {
-        return new BaseCoord3D(a.X / b.X, a.Y / b.Y, a.Z / b.Z);
-    }
-
-    public virtual float MaxComponent(BaseCoord3D p1)
+    public float MaxComponent(BaseCoord3D p1)
     {
         return Math.Max(p1.X, Math.Max(p1.Y, p1.Z));
     }
-    public virtual float MinComponent(BaseCoord3D p1)
+    public float MinComponent(BaseCoord3D p1)
     {
         return Math.Max(p1.X, Math.Max(p1.Y,p1.Z));
+    }
+
+    public bool HasNaNs()
+    {
+        return float.IsNaN(_x) || float.IsNaN(_y) || float.IsNaN(_z);
     }
 
     #endregion

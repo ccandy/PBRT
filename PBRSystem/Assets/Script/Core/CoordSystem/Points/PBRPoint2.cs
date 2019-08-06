@@ -33,6 +33,43 @@ public class PBRPoint2:BaseCoord2D
 
 
     #region Operator
+
+    public static PBRPoint2 operator +(PBRPoint2 p1, PBRVector2 p2)
+    {
+        return new PBRPoint2(p1.X + p2.X, p1.Y + p2.Y);
+    }
+
+    public static PBRPoint2 operator -(PBRPoint2 p1, PBRVector2 p2)
+    {
+        return new PBRPoint2(p1.X - p2.X, p1.Y - p2.Y);
+    }
+
+    public static PBRPoint2 operator -(PBRPoint2 p1)
+    {
+        return new PBRPoint2(-p1.X, -p1.Y);
+    }
+
+    public static PBRPoint2 operator *(PBRPoint2 p1, PBRPoint2 p2)
+    {
+        return new PBRPoint2(p1.X * p2.X, p1.Y * p2.Y);
+    }
+
+    public static PBRPoint2 operator *(PBRPoint2 p1, float s)
+    {
+        return new PBRPoint2(p1.X * s, p1.Y * s);
+    }
+
+    public static PBRPoint2 operator /(PBRPoint2 p1, PBRPoint2 p2)
+    {
+        return new PBRPoint2(p1.X / p2.X, p1.Y / p2.Y);
+    }
+
+    public static PBRPoint2 operator /(PBRPoint2 p1, float s)
+    {
+        return new PBRPoint2(p1.X / s, p1.Y / s);
+    }
+
+
     public static bool operator ==(PBRPoint2 p1, PBRVector2 p2)
     {
         return (p1.X == p2.X) && (p1.Y == p2.Y);
@@ -41,6 +78,8 @@ public class PBRPoint2:BaseCoord2D
     {
         return (p1.X != p2.X) && (p1.Y != p2.Y);
     }
+
+
 
     override
     public bool Equals(object obj)
