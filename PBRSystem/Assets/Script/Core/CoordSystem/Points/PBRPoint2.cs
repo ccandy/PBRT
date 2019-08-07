@@ -39,9 +39,18 @@ public class PBRPoint2:BaseCoord2D
         return new PBRPoint2(p1.X + p2.X, p1.Y + p2.Y);
     }
 
-    public static PBRPoint2 operator -(PBRPoint2 p1, PBRVector2 p2)
+    public static PBRPoint2 operator +(PBRPoint2 p1, PBRPoint2 p2)
     {
-        return new PBRPoint2(p1.X - p2.X, p1.Y - p2.Y);
+        return new PBRPoint2(p1.X + p2.X, p1.Y + p2.Y);
+    }
+
+    public static PBRVector2 operator -(PBRPoint2 p1, PBRVector2 p2)
+    {
+        return new PBRVector2(p1.X - p2.X, p1.Y - p2.Y);
+    }
+    public static PBRVector2 operator -(PBRPoint2 p1, PBRPoint2 p2)
+    {
+        return new PBRVector2(p1.X - p2.X, p1.Y - p2.Y);
     }
 
     public static PBRPoint2 operator -(PBRPoint2 p1)
@@ -79,6 +88,23 @@ public class PBRPoint2:BaseCoord2D
         return (p1.X != p2.X) && (p1.Y != p2.Y);
     }
 
+    public float Length()
+    {
+        return (float)Math.Sqrt(LengthSquared());
+    }
+
+    public float Distance(PBRPoint2 p1, PBRPoint2 p2)
+    {
+        return (p2 - p1).Length();
+    }
+    public float LengthSquared()
+    {
+        return (_x * _x + _y * _y);
+    }
+    public float DistanceSquare(PBRPoint2 p1, PBRPoint2 p2)
+    {
+        return (p2 - p1).LengthSquared();
+    }
 
 
     override

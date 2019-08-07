@@ -54,7 +54,12 @@ public class PBRPoint3:BaseCoord3D
     }
 
     #region operator
-    public static PBRPoint3 operator -(PBRPoint3 a, PBRPoint3 b)
+    public static PBRVector3 operator -(PBRPoint3 a, PBRPoint3 b)
+    {
+        return new PBRVector3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+    }
+
+    public static PBRPoint3 operator -(PBRPoint3 a, PBRVector3 b)
     {
         return new PBRPoint3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
     }
@@ -72,6 +77,15 @@ public class PBRPoint3:BaseCoord3D
     public static PBRPoint3 operator +(PBRPoint3 a, PBRVector3 b)
     {
         return new PBRPoint3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+    }
+    public static PBRPoint3 operator /(PBRPoint3 a, float s)
+    {
+        return new PBRPoint3(a.X/s, a.Y/s, a.Z/s);
+    }
+
+    public static PBRPoint3 operator /(PBRPoint3 a, PBRPoint3 b)
+    {
+        return new PBRPoint3(a.X / b.X, a.Y / b.Y, a.Z / b.Z);
     }
 
     public static PBRPoint3 operator *(PBRPoint3 a, float s)

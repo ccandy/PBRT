@@ -26,7 +26,7 @@ public class PBRRayDifferential : PBRRay
     override
     public bool HasNaNs()
     {
-        return base.HasNaNs() || rxOrigin.HasNaNs() || ryOrigin.HasNaNs() || rxDirection.HasNaNs() || ryDriection.HasNaNs();
+        return base.HasNaNs() || rxOrigin.HasNaNs() || ryOrigin.HasNaNs() || rxDirection.HasNaNs() || ryDirection.HasNaNs();
     }
 
     public void ScaleDifferential(float s)

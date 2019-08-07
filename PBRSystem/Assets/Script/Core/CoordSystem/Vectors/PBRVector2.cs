@@ -93,6 +93,26 @@ public class PBRVector2:BaseCoord2D
         return Math.Abs(a.X * b.X + a.Y * b.Y);
     }
 
+    public float LengthSquared()
+    {
+        return (_x * _x + _y * _y);
+    }
+
+    public float Length()
+    {
+        return (float)Math.Sqrt(LengthSquared());
+    }
+
+    public float Distance(PBRPoint3 p1, PBRPoint3 p2)
+    {
+        return (p2 - p1).Length();
+    }
+
+    public float DistanceSquare(PBRPoint3 p1, PBRPoint3 p2)
+    {
+        return (p2 - p1).LengthSquared();
+    }
+
     override
     public bool Equals(object obj)
     {
